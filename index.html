@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OrbitWatch — Live Rocket & Satellite Tracker</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="src/css/style.css"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <span class="logo">🛸 ORBITWATCH</span>
+      <span class="tagline">LIVE ROCKET & SATELLITE TRACKER</span>
+    </div>
+    <div class="header-right">
+      <div class="stat-pill">
+        <span class="stat-label">ISS SPEED</span>
+        <span class="stat-value" id="iss-speed">—</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">ALTITUDE</span>
+        <span class="stat-value" id="iss-alt">—</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-label">CREW</span>
+        <span class="stat-value" id="iss-crew">—</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- TAB BAR -->
+  <div class="tab-bar">
+    <button class="tab active" data-tab="iss">🛸 ISS TRACKER</button>
+    <button class="tab" data-tab="launches">🚀 LAUNCHES</button>
+    <button class="tab" data-tab="crew">👨‍🚀 CREW</button>
+  </div>
+
+  <!-- MAP -->
+  <div id="map"></div>
+
+  <!-- BOTTOM PANEL -->
+  <div class="bottom-panel" id="bottom-panel">
+
+    <!-- ISS TAB -->
+    <div class="tab-content active" id="tab-iss">
+      <div class="data-grid">
+        <div class="data-cell">
+          <span class="data-label">LATITUDE</span>
+          <span class="data-value" id="iss-lat">—</span>
+        </div>
+        <div class="data-cell">
+          <span class="data-label">LONGITUDE</span>
+          <span class="data-value" id="iss-lon">—</span>
+        </div>
+        <div class="data-cell">
+          <span class="data-label">ALTITUDE</span>
+          <span class="data-value" id="iss-alt2">—</span>
+        </div>
+        <div class="data-cell">
+          <span class="data-label">VELOCITY</span>
+          <span class="data-value" id="iss-vel">—</span>
+        </div>
+        <div class="data-cell">
+          <span class="data-label">VISIBILITY</span>
+          <span class="data-value" id="iss-vis">—</span>
+        </div>
+        <div class="data-cell">
+          <span class="data-label">DAYLIGHT</span>
+          <span class="data-value" id="iss-day">—</span>
+        </div>
+      </div>
+      <div class="update-bar">
+        <span class="pulse-dot"></span>
+        <span id="update-time">Updating every 5 seconds...</span>
+      </div>
+    </div>
+
+    <!-- LAUNCHES TAB -->
+    <div class="tab-content" id="tab-launches">
+      <div id="launches-list">
+        <div class="loading-text">🚀 Loading upcoming launches...</div>
+      </div>
+    </div>
+
+    <!-- CREW TAB -->
+    <div class="tab-content" id="tab-crew">
+      <div id="crew-list">
+        <div class="loading-text">👨‍🚀 Loading crew data...</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="src/js/app.js"></script>
+</body>
+</html>
